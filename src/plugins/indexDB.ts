@@ -5,21 +5,23 @@ interface Tokens {
   token: string;
 }
 
-interface Employee {
+export interface EmployeeDB {
   id?: number;
   id_employee: number;
   id_branch: number;
+  name:string
+  lastName:string
 }
 
 class MyDatabase extends Dexie {
   token: Dexie.Table<Tokens, number>;
-  employee: Dexie.Table<Employee, number>;
+  employee: Dexie.Table<EmployeeDB, number>;
 
   constructor() {
     super("attendance");
     this.version(2).stores({
       tokens: "++id,token",
-      employees: "++id,id_employee,id_branch",
+      employees: "++id,id_employee,id_branch,name,lastName",
     });
     this.token = this.table("tokens");
     this.employee = this.table("employees");

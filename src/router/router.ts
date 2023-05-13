@@ -26,15 +26,21 @@ const is_auth = async () => {
   return tokens.length > 0;
 };
 
+console.log(await is_auth());
+
 const router = createRouter({
   routes,
   history: createWebHistory(),
 });
 
 router.beforeEach(async (to, _, next) => {
-  if (to.meta.need_auth && (await !is_auth())) {
-    next("/auth");
+  const publicPages = ["/auth"];
+  const authRequired = !publicPages.includes(to.path);
+
+  if (authRequired && !(await is_auth())) {
+    return next("/auth");
   }
+
   next();
 });
 

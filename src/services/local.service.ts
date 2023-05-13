@@ -24,9 +24,9 @@ export const delete_token = async () => {
   }
 };
 
-export const add_employee = async (id_branch: number, id_employee: number) => {
+export const add_employee = async (id_branch: number, id_employee: number,name:string,lastName:string) => {
   try {
-    await db.employee.add({ id_branch, id_employee });
+    await db.employee.add({ id_branch, id_employee,name,lastName });
   } catch (error) {
     return error;
   }
