@@ -5,6 +5,7 @@ import {
   add_token,
   delete_employee,
   delete_token,
+  get_token
 } from "../services/local.service";
 import db, { EmployeeDB } from "../plugins/indexDB";
 import { router } from "../router/router";
@@ -15,14 +16,16 @@ const toast = useToast();
 export const UseAuthStore = defineStore("auth", {
   state: () => ({
     is_auth: false,
-    token: undefined as string | undefined,
+    token: get_token() as string | undefined,
     employee: {} as EmployeeDB,
   }),
   actions: {
     async MakeLogin(vendorCode: string, password: string) {
       const { ok, token, employee } = await make_login(vendorCode, password);
       if (ok) {
-        await add_token(token);
+        add_token(token);
+        
+        toast.success("Bienvenido")
         await add_employee(
           employee.branch.id,
           employee.id,
@@ -55,7 +58,7 @@ export const UseAuthStore = defineStore("auth", {
       }
     },
     async MakeLoggout() {
-      await delete_token();
+      delete_token();
       await delete_employee()
       this.token = undefined;
       this.is_auth = false;

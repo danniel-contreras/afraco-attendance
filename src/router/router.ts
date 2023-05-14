@@ -1,11 +1,14 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
-import { get_token } from "../services/local.service";
+import { is_auth } from "../services/local.service";
+import HomeVue from "../pages/Home.vue";
+import AccountVue from "../pages/Account.vue";
+import AuthVue from "../pages/Auth.vue";
 
 const routes: RouteRecordRaw[] = [
   {
     name: "Auth",
     path: "/auth",
-    component: () => import("../pages/Auth.vue"),
+    component: AuthVue,
     meta: {
       need_auth: false,
     },
@@ -13,7 +16,7 @@ const routes: RouteRecordRaw[] = [
   {
     name: "Home",
     path: "/",
-    component: () => import("../pages/Home.vue"),
+    component:HomeVue,
     meta: {
       need_auth: true,
     },
@@ -21,31 +24,23 @@ const routes: RouteRecordRaw[] = [
   {
     name: "Account",
     path: "/account",
-    component: () => import("../pages/Account.vue"),
+    component: AccountVue,
     meta: {
       need_auth: true,
     },
   },
 ];
 
-const is_auth = async () => {
-  const tokens = await get_token();
-
-  return tokens.length > 0;
-};
-
-console.log(await is_auth());
-
 const router = createRouter({
   routes,
   history: createWebHistory(),
 });
 
-router.beforeEach(async (to, _, next) => {
+router.beforeEach( (to, _, next) => {
   const publicPages = ["/auth"];
   const authRequired = !publicPages.includes(to.path);
 
-  if (authRequired && !(await is_auth())) {
+  if (authRequired && !is_auth()) {
     return next("/auth");
   }
 
