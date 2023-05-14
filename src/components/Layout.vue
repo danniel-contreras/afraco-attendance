@@ -17,23 +17,33 @@
             <div class="sidebar-content px-4 py-6">
                 <ul class="flex flex-col w-full">
                     <li class="my-px">
-                        <a href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
+                        <RouterLink to="/" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
                             <span class="flex items-center justify-center text-lg text-gray-400">
                                 <span class="flex items-center justify-center text-lg text-gray-400">
                                <oh-vue-icon scale="1.5" name="fa-home"/>
                             </span>
                             </span>
                             <span class="ml-3">Inicio</span>
-                        </a>
+                        </RouterLink>
+                    </li>
+                    <li class="my-px">
+                        <RouterLink to="/account" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
+                            <span class="flex items-center justify-center text-lg text-gray-400">
+                                <span class="flex items-center justify-center text-lg text-gray-400">
+                               <oh-vue-icon scale="1.5" name="fa-user-circle"/>
+                            </span>
+                            </span>
+                            <span class="ml-3">Mi Cuenta</span>
+                        </RouterLink>
                     </li>
                     
                     <li class="my-px" @click="MakeLoggout">
-                        <a href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
+                        <span href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
                             <span class="flex items-center justify-center text-lg text-gray-400">
                                <oh-vue-icon scale="1.5" name="hi-logout"/>
                             </span>
                             <span class="ml-3">Cerrar Sesion</span>
-                        </a>
+                        </span>
                     </li>
                 </ul>
             </div>

@@ -41,7 +41,7 @@ export const delete_employee = async () => {
     const employees = await get_employee();
 
     employees.forEach(async (emp) => {
-      await db.token.delete(Number(emp.id));
+      await db.employee.delete(Number(emp.id));
     });
   } catch (error) {
     return error;

@@ -18,6 +18,14 @@ const routes: RouteRecordRaw[] = [
       need_auth: true,
     },
   },
+  {
+    name: "Account",
+    path: "/account",
+    component: () => import("../pages/Account.vue"),
+    meta: {
+      need_auth: true,
+    },
+  },
 ];
 
 const is_auth = async () => {
