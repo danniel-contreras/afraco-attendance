@@ -11,8 +11,7 @@
                 <p class="text-lg"><span class="font-semibold">Telefono:</span> {{ employee_info.phone }}</p>
                 <p class="text-lg"><span class="font-semibold">Fecha de ingreso:</span> {{ new Date(employee_info.dateOfHire).toLocaleDateString() }}</p>
             </div>
-            <button>Cambiar contraseña</button>
-            <button>Cerrar sesion</button>
+            
         </div>
     </Layout>
 </template>

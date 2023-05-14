@@ -54,6 +54,8 @@ const { date, time, datetime } = storeToRefs(UseUserStore())
 
 const { employee } = storeToRefs(UseAuthStore())
 
+const {SetInfo} = UseAuthStore()
+
 const { is_authorized, attendance } = storeToRefs(UseAttendanceStore())
 
 const { VerifyAuth, AddNewAttendance, VerifyAttendance, ExitAttendance } = UseAttendanceStore()
@@ -72,6 +74,7 @@ const Loading = async () => {
 }
 
 onMounted(async () => {
+    await SetInfo()
     await GetDateTime()
     await VerifyAuth(employee.value.id_employee)
     await VerifyAttendance(employee.value.id_employee, format_date(datetime.value.datetime))
