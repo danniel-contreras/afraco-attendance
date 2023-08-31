@@ -8,9 +8,17 @@ import {
   VerifyAuth,
 } from "../types/attendance.types";
 
+export const get_json_ip = async () => {
+  const { data } = await axios.get<{ ip: string }>(
+    "https://api.ipify.org/?format=json"
+  );
+  return data;
+};
+
 export const check_info = async (user_id: number) => {
+  const { ip } = await get_json_ip();
   const { data } = await axios.get<VerifyAuth>(
-    API_URL + "/branch/verifyAuth/" + user_id
+    API_URL + "/branch/verifyAuth/" + user_id + "?ip=" + ip
   );
   return data;
 };

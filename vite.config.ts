@@ -7,12 +7,15 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      registerType: "prompt",
+      registerType: "autoUpdate",
+      workbox: {
+        cleanupOutdatedCaches: true,
+      },
       includeAssets: ["512x512.png", "32x32.png", "192x192.png"],
       manifest: {
         name: "Asistencia - El Sotano",
         short_name: "asistencia_afraco",
-        description: "Aplicacion para registrtar la asistencia de los usuarios",
+        description: "Aplicación para registrar la asistencia de los usuarios",
         theme_color: "#ffffff",
         start_url: "/",
         icons: [

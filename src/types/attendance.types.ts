@@ -41,7 +41,11 @@ export interface AddAttendanceResponse {
   };
 }
 
-export interface CloseAttendance{
-    exitTime: string;
-    employeeId: number;
+export interface CloseAttendance {
+  exitTime: string;
+  employeeId: number;
+}
+
+export interface IP {
+  ip: string
 }

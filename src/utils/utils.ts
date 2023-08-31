@@ -1,7 +1,5 @@
 export const format_date = (date_str: string) => {
-    console.log(date_str)
   const date = new Date(date_str);
-  console.log(date)
   const day =
     date.getFullYear() +
     "-" +
