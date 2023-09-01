@@ -5,7 +5,7 @@ import {
   add_token,
   delete_employee,
   delete_token,
-  get_token
+  get_token,
 } from "../services/local.service";
 import db, { EmployeeDB } from "../plugins/indexDB";
 import { router } from "../router/router";
@@ -24,8 +24,8 @@ export const UseAuthStore = defineStore("auth", {
       const { ok, token, employee } = await make_login(vendorCode, password);
       if (ok) {
         add_token(token);
-        
-        toast.success("Bienvenido")
+
+        toast.success("Bienvenido");
         await add_employee(
           employee.branch.id,
           employee.id,
@@ -46,10 +46,11 @@ export const UseAuthStore = defineStore("auth", {
       }
     },
     async SetInfo() {
-      const token = await db.token.toArray();
+      // const token = await db.token.toArray();
       const employee = await db.employee.toArray();
-      if (token.length > 0) {
-        this.token = token[0].token;
+      const token = localStorage.getItem("token");
+      if (token) {
+        this.token = token;
         this.employee = employee[0];
         this.is_auth = true;
       } else {
@@ -59,7 +60,7 @@ export const UseAuthStore = defineStore("auth", {
     },
     async MakeLoggout() {
       delete_token();
-      await delete_employee()
+      await delete_employee();
       this.token = undefined;
       this.is_auth = false;
       router.push("/auth");

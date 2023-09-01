@@ -1,1 +1,1 @@
-export const  API_URL = "http://192.168.101.5:3001/api"
+export const  API_URL = "https://sotano-rest-api-app-o97ds.ondigitalocean.app/api"
