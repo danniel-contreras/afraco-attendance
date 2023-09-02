@@ -16,6 +16,7 @@
     "idb-keyval": "^6.2.1",
     "oh-vue-icons": "^1.0.0-rc3",
     "pinia": "^2.0.36",
+    "sweetalert2": "^11.7.27",
     "vee-validate": "^4.9.3",
     "vite-plugin-pwa": "^0.14.7",
     "vue": "^3.2.47",

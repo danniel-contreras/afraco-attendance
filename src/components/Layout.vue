@@ -17,24 +17,24 @@
             <div class="sidebar-content px-4 py-6">
                 <ul class="flex flex-col w-full">
                     <li class="my-px">
-                        <RouterLink to="/" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
+                        <a href="/" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
                             <span class="flex items-center justify-center text-lg text-gray-400">
                                 <span class="flex items-center justify-center text-lg text-gray-400">
                                <oh-vue-icon scale="1.5" name="fa-home"/>
                             </span>
                             </span>
                             <span class="ml-3">Inicio</span>
-                        </RouterLink>
+                        </a>
                     </li>
                     <li class="my-px">
-                        <RouterLink to="/account" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
+                        <a href="/account" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-50">
                             <span class="flex items-center justify-center text-lg text-gray-400">
                                 <span class="flex items-center justify-center text-lg text-gray-400">
                                <oh-vue-icon scale="1.5" name="fa-user-circle"/>
                             </span>
                             </span>
                             <span class="ml-3">Mi Cuenta</span>
-                        </RouterLink>
+                        </a>
                     </li>
                     
                     <li class="my-px" @click="MakeLoggout">
@@ -55,12 +55,12 @@
                         <oh-vue-icon class="text-gray-600" scale="1.5" name="oi-three-bars"></oh-vue-icon>
                     </button>
                     <p class="text-xl font-semibold ml-5">{{ title }}</p>
-                    <div class="flex ml-auto mr-10">
+                    <div class="flex ml-auto mr-3">
                         <a class="flex flex-row items-center">
                             <img src="../assets/profile.png" class="h-10 w-10 bg-gray-200 border rounded-full" />
                             <span class="flex flex-col ml-2">
-                                <span class="truncate w-20 font-semibold tracking-wide leading-none">{{ employee.name }}</span>
-                                <span class="truncate w-20 text-gray-500 text-xs leading-none mt-1">{{ employee.lastName }}</span>
+                                <span class="truncate w-32 font-semibold tracking-wide text-sm leading-none">{{ employee.name }}</span>
+                                <span class="truncate w-32 text-gray-500 text-xs leading-none mt-1">{{ employee.lastName }}</span>
                             </span>
                         </a>
                     </div>
@@ -68,9 +68,9 @@
             </header>
             <div class="main-content flex flex-col justify-center items-center bg-gray-50 flex-grow p-4">
                 <div
-                    class="flex flex-col w-full flex-grow max-h-[85vh] border-2 border-dashed border-gray-300 bg-white rounded mt-4">
+                    class="flex flex-col justify-center items-center w-full flex-grow max-h-[85vh] border-2 border-dashed border-gray-300 bg-white rounded mt-4">
 
-                    <div class="w-full h-full p-6">
+                    <div class="w-full h-full">
                         <!-- <slot /> -->
                         <slot />
                     </div>

@@ -1,24 +1,24 @@
 <template>
   <Layout title="Mi Cuenta">
-    <div class="w-full h-full justify-center items-center">
+    <div class="w-full h-full flex flex-col justify-center items-center">
       <div class="w-full flex justify-center items-center">
         <img class="w-32" src="../assets/profile.png" />
       </div>
       <div>
-        <p class="text-lg">
+        <p class="text-sm whitespace-pre-wrap">
           <span class="font-semibold">Nombre:</span>
           {{ employee_info.names + " " + employee_info.lastNames }}
         </p>
-        <p class="text-lg">
+        <p class="text-sm whitespace-pre-wrap">
           <span class="font-semibold">Direccion:</span> {{ employee_info.address }}
         </p>
-        <p class="text-lg">
+        <p class="text-sm whitespace-pre-wrap">
           <span class="font-semibold">Edad:</span> {{ employee_info.age }}
         </p>
-        <p class="text-lg">
+        <p class="text-sm whitespace-pre-wrap">
           <span class="font-semibold">Telefono:</span> {{ employee_info.phone }}
         </p>
-        <p class="text-lg">
+        <p class="text-sm whitespace-pre-wrap">
           <span class="font-semibold">Fecha de ingreso:</span>
           {{ new Date(employee_info.dateOfHire).toLocaleDateString() }}
         </p>

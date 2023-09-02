@@ -8,7 +8,6 @@ import {
   get_token,
 } from "../services/local.service";
 import db, { EmployeeDB } from "../plugins/indexDB";
-import { router } from "../router/router";
 import { useToast } from "vue-toastification";
 
 const toast = useToast();
@@ -40,7 +39,7 @@ export const UseAuthStore = defineStore("auth", {
           name: employee.names,
           lastName: employee.lastNames,
         };
-        router.push("/");
+        window.location.href = "/";
       } else {
         toast.error("Datos invalidos");
       }
@@ -63,7 +62,7 @@ export const UseAuthStore = defineStore("auth", {
       await delete_employee();
       this.token = undefined;
       this.is_auth = false;
-      router.push("/auth");
+      window.location.href = "/login";
     },
   },
 });
